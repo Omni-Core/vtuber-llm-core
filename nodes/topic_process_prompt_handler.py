@@ -14,13 +14,17 @@ def topic_process_prompt_handler(state: GraphState) -> GraphState:
     llm = persona_manager.llm
 
     persona_content = {"name": persona_name}
-    
+
     topic = state["topic"]
     present_contents = state["present_contents"]
     user_content = {"topic": topic, "present_contents": present_contents}
 
-    combined_system_content = test_prompt.format(**persona_content)
-    user_prompt_content = user_prompt.format(**user_content)
+    # 캐싱된 템플릿 불러옴
+    topic_generation_template = persona_manager.topic_generation_template
+    storytelling_template = persona_manager.storytelling_template
+
+    combined_system_content = topic_generation_template.format(**persona_content)
+    user_prompt_content = storytelling_template.format(**user_content)
 
     prompt = [
         {"role": "system", "content": combined_system_content},
