@@ -1,5 +1,7 @@
+from functools import lru_cache
 from langchain_core.prompts import load_prompt
 
+@lru_cache(maxsize=1)
 def get_persona(persona_name="박점례"):
     """ 
     persona config 반환 함수
@@ -10,7 +12,7 @@ def get_persona(persona_name="박점례"):
 
     return persona_name
 
-
+@lru_cache(maxsize=1)
 def get_persona_template(persona_name="박점례"):
     """ 
     persona 템플릿 반환 함수
