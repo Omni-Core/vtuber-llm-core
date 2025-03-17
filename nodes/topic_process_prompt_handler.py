@@ -14,7 +14,7 @@ def topic_process_prompt_handler(state: GraphState) -> GraphState:
     llm = persona_manager.llm
 
     persona_content = {"name": persona_name}
-
+    
     topic = state["topic"]
     present_contents = state["present_contents"]
     user_content = {"topic": topic, "present_contents": present_contents}
@@ -28,6 +28,6 @@ def topic_process_prompt_handler(state: GraphState) -> GraphState:
     ]
 
     answer = llm.invoke(prompt).content
-    print(answer)
+    # print(answer)
 
     return GraphState(vtuber_output=answer)

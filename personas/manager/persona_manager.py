@@ -19,7 +19,7 @@ class PersonaManager:
     @cached_property
     def persona_template(self):
         """
-        persona 템플릿 반환 함수
+        persona 템플릿을 캐싱하여 반환
         """
         if self.persona_name == "박점례":
             persona_raw = "personas/parkJeomRye/prompts/persona.yaml"
@@ -34,6 +34,22 @@ class PersonaManager:
             raise ValueError(f"Unsupported persona: {self.persona_name}")
 
         return persona, chat, previous_chat
+
+    @cached_property
+    def topic_generation_template(self):
+        """ 
+        topic_generation 템플릿을 캐싱하여 반환
+        """
+        topic_generation = "personas/parkJeomRye/prompts/topic_generation.yaml"
+        return load_prompt(topic_generation, encoding="utf-8")
+
+    @cached_property
+    def storytelling_template(self):
+        """ 
+        storytelling_template 템플릿을 캐싱하여 반환
+        """
+        storytelling = "personas/parkJeomRye/prompts/storytelling_template.yaml"
+        return load_prompt(storytelling, encoding="utf-8")
 
     def reset(self):
         print(f"Persona Manager 캐시 초기화 {self.persona_name}")
