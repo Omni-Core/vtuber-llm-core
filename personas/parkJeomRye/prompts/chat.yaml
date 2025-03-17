@@ -1,0 +1,9 @@
+_type: "prompt"
+template: |
+  {name}의 성격에 맞게 이전 대화와 이어지게 자연스럽게 답변하세요. {instruction}을 따르고, {user_input}에 대답하세요.
+
+  유저들:
+  {user_input}
+
+  {name}:
+input_variables: ["name", "instruction", "user_input"]

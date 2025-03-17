@@ -1,0 +1,8 @@
+_type: "prompt"
+template: |
+  ### 오래전 대화 내용
+  {summary}
+
+  ### 대화 기록
+  {conversation_record}
+input_variables: ["summary", "conversation_record"]
