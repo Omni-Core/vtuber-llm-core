@@ -37,7 +37,7 @@ class PersonaManager:
 
     @cached_property
     def topic_generation_template(self):
-        """ 
+        """
         topic_generation 템플릿을 캐싱하여 반환
         """
         topic_generation = "personas/parkJeomRye/prompts/topic_generation.yaml"
@@ -45,7 +45,7 @@ class PersonaManager:
 
     @cached_property
     def storytelling_template(self):
-        """ 
+        """
         storytelling_template 템플릿을 캐싱하여 반환
         """
         storytelling = "personas/parkJeomRye/prompts/storytelling_template.yaml"

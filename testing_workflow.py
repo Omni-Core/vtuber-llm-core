@@ -1,8 +1,15 @@
 from vtube_state.vtuber_graph import GraphState
 from langgraph.graph import END, StateGraph
 from nodes.initial_state import initial_state
+from nodes.generate_conversation_topic import generate_conversation_topic
+from nodes.topic_process_prompt_handler import topic_process_prompt_handler
+from nodes.merging_topic_messages import merging_topic_messages
+from nodes.summarize_topic_memory import summarize_topic_memory
+from nodes.merging_topic_messages import merging_topic_messages
+from conditions.should_merge_topic_memory import should_merge_topic_memory
+from langgraph.checkpoint.memory import MemorySaver
 
-
+# from langchain_teddynote.graphs import visualize_graph
 
 
 workflow = StateGraph(GraphState)
@@ -34,4 +41,4 @@ memory = MemorySaver()
 
 app = workflow.compile(checkpointer=memory)
 
-visualize_graph(app)
+# visualize_graph(app)

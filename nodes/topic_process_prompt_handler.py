@@ -17,7 +17,8 @@ def topic_process_prompt_handler(state: GraphState) -> GraphState:
 
     topic = state["topic"]
     present_contents = state["present_contents"]
-    user_content = {"topic": topic, "present_contents": present_contents}
+    user_content = {"name": persona_name, "topic": topic}
+    # user_content = {"topic": topic, "present_contents": present_contents}
 
     # 캐싱된 템플릿 불러옴
     topic_generation_template = persona_manager.topic_generation_template
