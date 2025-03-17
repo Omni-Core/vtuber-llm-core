@@ -1,6 +1,5 @@
 from vtube_state.vtuber_graph import GraphState
-from personas.persona_config import get_persona
-from llm_core.llm_factory import create_llm
+from personas.manager import PersonaManager
 
 
 def generate_conversation_topic(state: GraphState) -> GraphState:
@@ -13,12 +12,12 @@ def generate_conversation_topic(state: GraphState) -> GraphState:
     """
     present_contents = state["present_contents"]
     previous_topic = state.get("topic", "방송시작")
+    
+    # Persona 정보 불러오기
+    persona_manager  = PersonaManager()
+    persona_name = persona_manager.persona_name
+    llm = persona_manager.llm
 
-    # persona 정보 불러오기
-    persona_name = get_persona()
-
-    # llm 가져오기
-    llm = create_llm()
 
     prompt = f""" 
     현재 진행 방식: {present_contents}

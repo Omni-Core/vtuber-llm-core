@@ -1,6 +1,6 @@
 from vtube_state.vtuber_graph import GraphState
-from personas.persona_config import get_persona
-from llm_core.llm_factory import create_llm
+from personas.manager import PersonaManager
+
 
 def topic_process_prompt_handler(state: GraphState) -> GraphState:
     """
@@ -8,11 +8,10 @@ def topic_process_prompt_handler(state: GraphState) -> GraphState:
     topic을 바탕으로 혼잣말을 함
     """
 
-    # persona 정보 불러오기
-    persona_name = get_persona()
-
-    # llm 가져오기
-    llm = create_llm()
+    # Persona 정보 불러오기
+    persona_manager = PersonaManager()
+    persona_name = persona_manager.persona_name
+    llm = persona_manager.llm
 
     persona_content = {"name": persona_name}
 
