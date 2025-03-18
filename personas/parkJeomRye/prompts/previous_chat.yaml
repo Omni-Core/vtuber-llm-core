@@ -1,5 +1,9 @@
 _type: "prompt"
 template: |
+  ### 오래전 혼잣말 내용
+
+  ### 혼잣말 기록
+
   ### 오래전 대화 내용
   {summary}
 
