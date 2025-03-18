@@ -21,7 +21,6 @@ workflow.add_node("merging_topic_messages", merging_topic_messages)
 workflow.add_node("summarize_topic_memory", summarize_topic_memory)
 
 workflow.add_edge("initial_state", "generate_conversation_topic")
-# workflow.add_edge("initial_state", "topic_process_prompt_handler")
 workflow.add_edge("generate_conversation_topic", "topic_process_prompt_handler")
 workflow.add_edge("topic_process_prompt_handler", "merging_topic_messages")
 

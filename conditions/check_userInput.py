@@ -1,10 +1,11 @@
 from vtube_state.vtuber_graph import GraphState
 from typing import Literal
 
-
+# 수정사항 : 
+# 다음 노드가 soliloquy_prompt_handler에서 generate_conversation_topic 로 수정되었음!
 def check_userInput(
     state: GraphState,
-) -> Literal["get_userInput", "soliloquy_prompt_handler"]:
+) -> Literal["get_userInput", "generate_conversation_topic"]:
     """ 
     INITIAL_STATE에서 분기
     user input(chat)에 따라 GET_USER_INPUT, GENERATE_CONVERSATION_TOPIC으로 분기한다.
