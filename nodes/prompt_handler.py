@@ -13,6 +13,7 @@ def prompt_handler(state: GraphState) -> GraphState:
     # persona 파라미터들 : 나중에 다른 state에서 받아오는걸로 수정
     user_id = state["user_id"]
     user_chat = state["user_input"]
+    present_content = state["present_contents"]
 
     # persona 정보 불러오기
     persona_name = get_persona()
@@ -20,7 +21,7 @@ def prompt_handler(state: GraphState) -> GraphState:
 
 
     if True:
-        instruction = f"다음 {user_id}를 언급하거나 또는, {user_chat}를 반드시 먼저 한번 출력하고 답변하세요."
+        instruction = f"현재는 {present_content}를 진행하고 있습니다. 여기서 크게 벗어나지 않는 선에서 다음 {user_id}를 언급하거나 또는, {user_chat}를 반드시 먼저 한번 출력하고 답변하세요."
     else:
         instruction = f"{user_chat}를 종합적으로 고려한 답변을 출력하세요."
 
@@ -48,8 +49,9 @@ def prompt_handler(state: GraphState) -> GraphState:
 
     # persona template에 정보 입력
     formatted_persona = persona.format(**persona_content)
-    formatted_chat = chat.format(**chat_content)
     previous_info = previous_chat.format(**previous_content)
+
+    formatted_chat = chat.format(**chat_content)
 
     # prompt 구성
     combined_system_content = formatted_persona + "\n\n" + previous_info
