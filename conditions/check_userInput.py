@@ -16,4 +16,4 @@ def check_userInput(
     if len(user_content) > 0:
         return "get_userInput"
     else:
-        return "soliloquy_prompt_handler"
+        return "generate_conversation_topic"

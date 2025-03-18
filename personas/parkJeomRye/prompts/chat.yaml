@@ -1,5 +1,8 @@
 _type: "prompt"
 template: |
+  이번 대화는 한 방송 안에서 이어지는 채팅입니다.
+  {user_input}에 집중적으로 대답하세요.
+
   {name}의 성격에 맞게 이전 대화와 이어지게 자연스럽게 답변하세요. {instruction}을 따르고, {user_input}에 대답하세요.
 
   유저들:
