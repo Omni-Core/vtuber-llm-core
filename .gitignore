@@ -220,3 +220,5 @@ chat.csv
 *.json
 data
 chroma_db1
+baseball_hist_positions
+baseballrule
