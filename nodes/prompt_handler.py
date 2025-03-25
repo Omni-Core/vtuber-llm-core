@@ -49,9 +49,8 @@ def prompt_handler(state: GraphState) -> GraphState:
 
     # persona template에 정보 입력
     formatted_persona = persona.format(**persona_content)
-    previous_info = previous_chat.format(**previous_content)
-
     formatted_chat = chat.format(**chat_content)
+    previous_info = previous_chat.format(**previous_content)
 
     # prompt 구성
     combined_system_content = formatted_persona + "\n\n" + previous_info
